@@ -1,0 +1,69 @@
+﻿
+@{
+    var id = Convert.ToInt32(System.Web.HttpContext.Current.Session["Id"]);
+    var name = Convert.ToString(System.Web.HttpContext.Current.Session["name"]);
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Employee Info Application</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top navbar-right" style="background-color:darkseagreen">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active" style="list-style-type:none;padding:15px 15px">
+                        @name
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item nav-link" style="list-style-type:none;padding:15px 15px">
+                        @if (Request.IsAuthenticated)
+                        {
+                            using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
+                            {
+                                <a href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
+                            }
+                        }
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <br /><br />
+    <div class="container body-content">
+
+        @RenderBody()
+        <hr />
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <footer>
+                    <p>All Right Reserved Saiful Islam</p>
+                </footer>
+            </div>
+        </div>        
+    </div>
+
+    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/notify.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+

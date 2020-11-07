@@ -1,0 +1,19 @@
+﻿.field-validation-error {
+        color: #e80c4d;
+        font-weight: bold;
+    }
+
+
+    input.input-validation-error {
+        border: 1px solid #e80c4d;
+    }
+
+
+#navbarNav {
+    color: white !important;
+}
+
+.nav-link {
+    padding-right: .5rem !important;
+    padding-left: .5rem !important;
+}
